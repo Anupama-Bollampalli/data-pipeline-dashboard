@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Data / DB files
+backend/data/
+backend/pipeline.db
+*.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.cache
+frontend/.vite
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
