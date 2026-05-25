@@ -87,3 +87,8 @@ Or click the **Run Pipeline** button in the dashboard.
 docker build -t data-pipeline-dashboard .
 docker run -p 7862:7862 data-pipeline-dashboard
 ```
+
+## Live Demo
+
+- **Frontend**: [GitHub Pages](https://anupama-bollampalli.github.io/data-pipeline-dashboard/)
+- **Backend API**: [HF Space](https://abollampalli-data-pipeline-dashboard.hf.space)
