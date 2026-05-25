@@ -179,7 +179,7 @@ export default function MetricsDashboard() {
                 <Tooltip
                   contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #374151", borderRadius: 8 }}
                   labelStyle={{ color: "#d1d5db" }}
-                  formatter={(v: number) => [fmt(v), "Revenue"]}
+                  formatter={((v: number) => [fmt(v), "Revenue"]) as any}
                 />
                 <Legend wrapperStyle={{ color: "#9ca3af", fontSize: 12 }} />
                 <Line
@@ -222,7 +222,7 @@ export default function MetricsDashboard() {
                 <Tooltip
                   contentStyle={{ backgroundColor: "#1f2937", border: "1px solid #374151", borderRadius: 8 }}
                   labelStyle={{ color: "#d1d5db" }}
-                  formatter={(v: number) => [fmt(v), "Revenue"]}
+                  formatter={((v: number) => [fmt(v), "Revenue"]) as any}
                 />
                 <Bar dataKey="revenue" name="Revenue" fill="#6366f1" radius={[4, 4, 0, 0]} />
               </BarChart>
