@@ -35,7 +35,8 @@ export default function App() {
     setRunning(true);
     setRunMessage(null);
     try {
-      const res = await fetch("/api/pipeline/run", { method: "POST" });
+      const API = import.meta.env.VITE_API_URL ?? ''
+      const res = await fetch(`${API}/pipeline/run`, { method: "POST" });
       if (res.ok) {
         setRunMessage("Pipeline run completed successfully.");
         // Switch to pipeline tab to show results

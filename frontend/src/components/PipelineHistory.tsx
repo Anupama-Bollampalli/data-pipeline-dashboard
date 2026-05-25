@@ -50,6 +50,8 @@ function scoreColor(score: number): string {
   return "text-red-400";
 }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function PipelineHistory() {
   const [runs, setRuns] = useState<PipelineRun[]>([]);
   const [loading, setLoading] = useState(true);
@@ -59,7 +61,7 @@ export default function PipelineHistory() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/pipeline/runs");
+      const res = await fetch(`${API}/pipeline/runs`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setRuns(await res.json());
     } catch (err: unknown) {

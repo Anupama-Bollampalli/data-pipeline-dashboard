@@ -62,6 +62,8 @@ function KpiCard({ title, value, subtitle, icon, color }: KpiCardProps) {
   );
 }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function MetricsDashboard() {
   const [summary, setSummary] = useState<Summary | null>(null);
   const [monthly, setMonthly] = useState<MonthlyPoint[]>([]);
@@ -75,9 +77,9 @@ export default function MetricsDashboard() {
       setError(null);
       try {
         const [sumRes, monRes, prodRes] = await Promise.all([
-          fetch("/api/metrics/summary"),
-          fetch("/api/metrics/monthly"),
-          fetch("/api/metrics/top-products"),
+          fetch(`${API}/metrics/summary`),
+          fetch(`${API}/metrics/monthly`),
+          fetch(`${API}/metrics/top-products`),
         ]);
 
         if (!sumRes.ok) {

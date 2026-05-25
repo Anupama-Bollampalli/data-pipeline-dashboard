@@ -61,6 +61,8 @@ function MetricBar({ label, value }: MetricBarProps) {
   );
 }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function PipelineControl() {
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<RunResult | null>(null);
@@ -69,7 +71,7 @@ export default function PipelineControl() {
 
   // Fetch latest quality on mount
   useEffect(() => {
-    fetch("/api/quality/report")
+    fetch(`${API}/quality/report`)
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => { if (d) setQuality(d); })
       .catch(() => {});
@@ -79,7 +81,7 @@ export default function PipelineControl() {
     setRunning(true);
     setError(null);
     try {
-      const res = await fetch("/api/pipeline/run", { method: "POST" });
+      const res = await fetch(`${API}/pipeline/run`, { method: "POST" });
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.detail ?? res.statusText);
